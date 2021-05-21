@@ -10,10 +10,13 @@ import { initialValues, validationSchema } from "../utils";
 //Functions
 import { handleLogin } from "../functions";
 
+//Consts
+import { FORM_TITLE, SUBMIT_TEXT } from "../../../consts/loginScreen";
+
 const Form = () => {
   return (
     <div className="form">
-      <h1>Enter your credentials</h1>
+      <h1>{FORM_TITLE}</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={handleLogin}
@@ -24,18 +27,16 @@ const Form = () => {
             <InputControl
               name="email"
               label="Email"
-              placeholder="Enter your email adress"
               inputProps={{ type: "email" }}
             />
             <InputControl
-              typeof="password"
               mt="1em"
               name="password"
               label="Password"
               inputProps={{ type: "password" }}
             />
             <SubmitButton width="100%" size="lg" mt="2em">
-              Log in
+              {SUBMIT_TEXT}
             </SubmitButton>
           </Box>
         )}

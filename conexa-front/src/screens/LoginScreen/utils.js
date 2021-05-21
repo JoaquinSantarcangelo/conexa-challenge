@@ -1,5 +1,9 @@
 import * as Yup from "yup";
-
+import {
+  INVALID_EMAIL_ERROR,
+  EMPTY_EMAIL_ERROR,
+  EMPTY_PASSWORD_ERROR,
+} from "../../consts/loginScreen";
 export const initialValues = {
   email: "",
   password: "",
