@@ -1,7 +1,8 @@
 import React from "react";
 import { Counter } from "./features/counter/Counter";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import PrivateRoute from "./routes/PrivateRoute";
+import PublicRoute from "./routes/PublicRoute";
 // -- Styles -- //
 import "./styles/index.sass";
 import "./styles/globalStyles.sass";
@@ -19,8 +20,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={HomeScreen}></Route>
-          <Route path="/login" component={LoginScreen}></Route>
+          <PrivateRoute path="/" exact component={HomeScreen}></PrivateRoute>
+          <PublicRoute path="/login" component={LoginScreen}></PublicRoute>
         </Switch>
       </Router>
     </div>
