@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.sass";
 import { Box, ButtonGroup } from "@chakra-ui/react";
 import { Formik } from "formik";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
@@ -18,18 +19,23 @@ const Form = () => {
         validationSchema={validationSchema}
       >
         {({ handleSubmit, values, errors }) => (
-          <Box as="form" onSubmit={handleSubmit}>
+          <Box width="100%" as="form" onSubmit={handleSubmit}>
             <InputControl
               name="email"
               label="Email"
               placeholder="Enter your email adress"
-              type=""
+              inputProps={{ type: "email" }}
             />
-            <InputControl name="password" label="Password" />
-
-            <ButtonGroup>
-              <SubmitButton>Log in</SubmitButton>
-            </ButtonGroup>
+            <InputControl
+              typeof="password"
+              mt="1em"
+              name="password"
+              label="Password"
+              inputProps={{ type: "password" }}
+            />
+            <SubmitButton width="100%" size="lg" mt="2em">
+              Log in
+            </SubmitButton>
           </Box>
         )}
       </Formik>
