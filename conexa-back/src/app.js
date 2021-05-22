@@ -1,10 +1,17 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
+require("dotenv").config();
 
-//Routes
+//Routes Imports
 import postsRoutes from "./routes/posts.routes";
 
 const app = express();
+
+//Config
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 //Middelwares
 app.use(morgan("dev"));

@@ -1,9 +1,10 @@
 import { Router } from "express";
 const router = Router();
 
-//Consts
-import { GET_POST_PATH } from "../consts";
+//Controller
+import { getAllPosts } from "../controllers/posts.controller";
 
-router.get("/", (req, res) => res.json("Get posts"));
+//Routes
+router.get("/", getAllPosts);
 
 export default router;
