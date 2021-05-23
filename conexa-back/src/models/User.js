@@ -18,6 +18,8 @@ userSchema.statics.encryptPassword = async (password) => {
   return await bcrypt.hash(password, salta);
 };
 
-userSchema.statics.comparePassword = async (password, receivedPassword) => {};
+userSchema.statics.comparePassword = async (password, receivedPassword) => {
+  return await bcrypt.compare(password, receivedPassword);
+};
 
 export default userSchema;
