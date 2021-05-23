@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-require("dotenv").config();
+import "./database"
 
 //Routes Imports
 import postsRoutes from "./routes/posts.routes";
