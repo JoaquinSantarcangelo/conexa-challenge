@@ -5,6 +5,7 @@ import "./database";
 
 //Routes Imports
 import postsRoutes from "./routes/posts.routes";
+import photosRoutes from "./routes/photos.routes";
 import authRoutes from "./routes/auth.routes";
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 //Routes
 
 app.use("/api/posts", postsRoutes);
+app.use("/api/photos", photosRoutes);
 app.use("/api/auth", authRoutes);
 
 export default app;
