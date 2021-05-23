@@ -29,7 +29,7 @@ export const signIn = async (req, res) => {
 
   //Compares Encrypted Password
   const matchPassword = await User.comparePassword(
-    passowrd,
+    password,
     userFound.password
   );
 
