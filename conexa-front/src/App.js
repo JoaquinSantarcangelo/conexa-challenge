@@ -20,7 +20,12 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <PrivateRoute path="/" exact component={HomeScreen}></PrivateRoute>
+          <PrivateRoute
+            path="/"
+            exact
+            authenticated={true}
+            component={HomeScreen}
+          ></PrivateRoute>
           <PublicRoute path="/login" component={LoginScreen}></PublicRoute>
         </Switch>
       </Router>
