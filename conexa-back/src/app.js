@@ -5,7 +5,7 @@ import "./database";
 
 //Routes Imports
 import postsRoutes from "./routes/posts.routes";
-import photosRoutes from "./routes/posts.routes";
+import photosRoutes from "./routes/photos.routes";
 import authRoutes from "./routes/auth.routes";
 
 const app = express();
