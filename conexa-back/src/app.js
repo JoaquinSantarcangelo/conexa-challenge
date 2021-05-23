@@ -19,7 +19,6 @@ app.use(cors());
 app.use(morgan("dev"));
 
 //Routes
-
 app.use("/api/posts", postsRoutes);
 app.use("/api/photos", photosRoutes);
 app.use("/api/auth", authRoutes);
