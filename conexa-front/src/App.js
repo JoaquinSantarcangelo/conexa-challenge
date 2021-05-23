@@ -1,8 +1,11 @@
 import React from "react";
 import { Counter } from "./features/counter/Counter";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+
+//Routes
 import PrivateRoute from "./routes/PrivateRoute";
 import PublicRoute from "./routes/PublicRoute";
+
 // -- Styles -- //
 import "./styles/index.sass";
 import "./styles/globalStyles.sass";
@@ -20,9 +23,11 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          {/* Home Screen */}
           <PrivateRoute path="/" exact authenticated={true}>
             <HomeScreen />
           </PrivateRoute>
+          {/* Login Screen */}
           <PublicRoute path="/login" authenticated={true}>
             <LoginScreen />
           </PublicRoute>
