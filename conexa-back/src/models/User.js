@@ -13,5 +13,11 @@ const userSchema = new Schema(
   }
 );
 
+userSchema.statics.encryptPassword = async (password) => {
+  const salt = bcrypt.genSalt(10);
+  return await bcrypt.hash(password, salta);
+};
+
+userSchema.statics.comparePassword = async (password, receivedPassword) => {};
 
 export default userSchema;
