@@ -8,11 +8,16 @@ class UserService {
   getPosts() {
     return createAsyncThunk(
       "post/getPosts",
-      async () => await axios.get(`${API_URL}/posts`)
+      async () => await axios.get(API_URL + "posts")
     );
   }
 
-  getPhotos() {}
+  getPhotos() {
+    return createAsyncThunk(
+      "post/getPosts",
+      async () => await axios.get(API_URL + "photos")
+    );
+  }
 }
 
 export default new UserService();
