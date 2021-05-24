@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { signIn } from "../../services/auth.service";
 
 export const initialState = {
-  token: null,
-  loggedIn: true,
+  token: localStorage.getItem("token") || null,
+  loggedIn: localStorage.getItem("token") ? true : false,
   loading: false,
   error: "",
 };
@@ -11,6 +11,12 @@ export const initialState = {
 export const userSlice = createSlice({
   name: "post",
   initialState: initialState,
+  reducers: {
+    signOut: (state) => {
+      state.loggedIn = false;
+      localStorage.removeItem("token");
+    },
+  },
   extraReducers: {
     [signIn.pending]: (state, action) => {
       state.loading = true;
@@ -29,5 +35,8 @@ export const userSlice = createSlice({
     },
   },
 });
+
+export const { signOut } = userSlice.actions
+
 
 export default userSlice.reducer;
