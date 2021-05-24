@@ -31,11 +31,11 @@ function App() {
       <Router>
         <Switch>
           {/* Home Screen */}
-          <PrivateRoute path="/" authenticated={true}>
+          <PrivateRoute exact path="/" authenticated={user.loggedIn}>
             <HomeScreen />
           </PrivateRoute>
           {/* Login Screen */}
-          <PublicRoute path="/login" authenticated={user.user}>
+          <PublicRoute path="/" authenticated={user.loggedIn}>
             <LoginScreen />
           </PublicRoute>
         </Switch>

@@ -3,6 +3,7 @@ import AuthService from "../../services/auth.service";
 
 export const initialState = {
   user: null,
+  loggedIn: true,
   loading: false,
   error: null,
 };

@@ -30,6 +30,8 @@ const HomeScreen = () => {
               component={PostsScreen}
             ></PrivateRoute>
             <PrivateRoute
+              path="/photos"
+              
               authenticated={true}
               component={PhotosScreen}
             ></PrivateRoute>
