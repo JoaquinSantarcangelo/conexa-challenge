@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { signIn } from "../../services/auth.service";
 
 export const initialState = {
-  user: null,
+  token: null,
   loggedIn: false,
   loading: false,
   error: "",
@@ -19,7 +19,7 @@ export const userSlice = createSlice({
       state.user = action.payload.data;
       state.loggedIn = true;
       state.loading = false;
-      localStorage.setItem("user", state.user);
+      localStorage.setItem("token", state.token);
     },
     [signIn.rejected]: (state, action) => {
       state.user = null;
