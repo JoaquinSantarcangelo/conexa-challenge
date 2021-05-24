@@ -17,13 +17,13 @@ const index = () => {
             mr="0.5em"
             leftIcon={<BsCollectionFill />}
             size="lg"
-            colorScheme="blue"
+            color="gray.900"
           >
             Posts
           </Button>
         </NavLink>
         <NavLink to="/photos">
-          <Button leftIcon={<BsFillImageFill />} size="lg" colorScheme="blue">
+          <Button color="gray.900" leftIcon={<BsFillImageFill />} size="lg">
             Photos
           </Button>
         </NavLink>
