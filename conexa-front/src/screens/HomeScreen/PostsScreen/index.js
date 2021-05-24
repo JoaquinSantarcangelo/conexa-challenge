@@ -26,8 +26,8 @@ const PostsScreen = () => {
         <Loading />
       ) : (
         <div className="posts">
-          {posts.posts.map((post) => (
-            <Post key={post.id} data={post} />
+          {posts.posts.map((post, i) => (
+            <Post key={post.id} i={i} data={post} />
           ))}
         </div>
       )}

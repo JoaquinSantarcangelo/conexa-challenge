@@ -1,10 +1,19 @@
 import React from "react";
-import { Divider } from "@chakra-ui/react";
 import "./index.sass";
+import { Divider } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { variantsTwo } from "../../../../consts/variants";
 
-const index = ({ data }) => {
+const index = ({ data, i }) => {
   return (
-    <div className="post">
+    <motion.div
+      variants={variantsTwo}
+      custom={i}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className="post"
+    >
       <div className="title">{data.title}</div>
       <div className="body">{data.body}</div>
       <Divider />
@@ -19,7 +28,7 @@ const index = ({ data }) => {
           <div className="tag">Ipsum</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
