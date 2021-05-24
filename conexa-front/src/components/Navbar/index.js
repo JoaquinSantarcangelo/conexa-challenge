@@ -35,7 +35,7 @@ const index = () => {
           variant="outline"
           size="lg"
         >
-          Log out
+          <div className="text">Log out</div>
         </Button>
       </div>
     </div>
