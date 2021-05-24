@@ -19,13 +19,13 @@ export const userSlice = createSlice({
       state.user = action.payload.data;
       state.loggedIn = true;
       state.loading = false;
-      localStorage.setItem("token", state.token);
+      localStorage.setItem("token", action.payload.token);
     },
     [signIn.rejected]: (state, action) => {
       state.user = null;
       state.loggedIn = false;
       state.loading = false;
-      state.error = "Invalid credentials"
+      state.error = "Invalid credentials";
     },
   },
 });

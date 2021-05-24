@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import authHeader from "./auth.header";
 
 //Consts
 import { API_URL } from "../consts";
