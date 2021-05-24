@@ -9,6 +9,6 @@ import { verifyToken } from "../middlewares/authJwt";
 
 //Routes
 // router.get("/", verifyToken, getAllPosts);
-router.get("/:page", getAllPosts);
+router.get("/", getAllPosts);
 
 export default router;
