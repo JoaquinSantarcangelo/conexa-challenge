@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API_URL } from "../../consts";
-import { getPosts, getPhotos, fetchPosts } from "../../services/user.service";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchPosts } from "../../services/user.service";
 
 export const initialState = {
   posts: [],
