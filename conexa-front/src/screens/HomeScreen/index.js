@@ -6,15 +6,24 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PhotosScreen from "./PhotosScreen";
 import PostsScreen from "./PostsScreen";
 
+//Components
+import Navbar from "../../components/Navbar";
+
 const HomeScreen = () => {
   return (
-    <div>
-      HomeScreen
+    <div id="home-screen">
       <Router>
-        <Switch>
-          <Route path="/posts" exact component={PostsScreen}></Route>
-          <Route path="/photos" component={PhotosScreen}></Route>
-        </Switch>
+        <div className="header">
+          <div className="container">
+            <Navbar />
+          </div>
+        </div>
+        <div className="container">
+          <Switch>
+            <Route path="/posts" exact component={PostsScreen}></Route>
+            <Route path="/photos" component={PhotosScreen}></Route>
+          </Switch>
+        </div>
       </Router>
     </div>
   );
