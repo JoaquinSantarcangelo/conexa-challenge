@@ -13,6 +13,7 @@ export const userSlice = createSlice({
   extraReducers: {
     [AuthService.login.fulfilled]: (state, action) => {
       state.user = action.payload.data;
+      localStorage.setItem("user", state.user);
     },
     [AuthService.login.rejected]: (state, action) => {
       state.user = null;
