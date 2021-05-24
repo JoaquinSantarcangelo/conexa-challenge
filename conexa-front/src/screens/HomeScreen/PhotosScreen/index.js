@@ -10,20 +10,12 @@ import PhotoModal from "./PhotoModal";
 import Loading from "../../../components/Loading";
 import PaginationButtons from "../../../components/PaginationButtons";
 
-const photo = {
-  albumId: 1,
-  id: 3,
-  title: "officia porro iure quia iusto qui ipsa ut modi",
-  url: "https://via.placeholder.com/600/24f355",
-  thumbnailUrl: "https://via.placeholder.com/150/24f355",
-};
-
 const PhotosScreen = () => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.photos);
   const [photoModal, setPhotoModal] = useState({
-    photo: photo,
-    state: true,
+    photo: null,
+    state: false,
   });
   const [offset, setOffset] = useState(0);
 
@@ -33,7 +25,13 @@ const PhotosScreen = () => {
 
   return (
     <div id="photos-screen">
-      {photoModal.state === true && <PhotoModal photo={photoModal.photo} />}
+      {photoModal.state === true && (
+        <PhotoModal
+          setPhotoModal={setPhotoModal}
+          photoModal={photoModal}
+          photo={photoModal.photo}
+        />
+      )}
       <div className="screen-title">Photos</div>
       <Divider />
       {photos.loading ? (
@@ -41,7 +39,12 @@ const PhotosScreen = () => {
       ) : (
         <div className="photos">
           {photos.photos.map((photo, i) => (
-            <Photo i={i} key={photo.id} data={photo} />
+            <Photo
+              i={i}
+              key={photo.id}
+              data={photo}
+              setPhotoModal={setPhotoModal}
+            />
           ))}
         </div>
       )}

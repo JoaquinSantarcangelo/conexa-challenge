@@ -4,7 +4,7 @@ import { variantsTwo } from "../../../../consts/variants";
 
 import "./index.sass";
 
-const index = ({ data, i }) => {
+const index = ({ data, i, setPhotoModal }) => {
   return (
     <motion.div
       variants={variantsTwo}
@@ -13,6 +13,7 @@ const index = ({ data, i }) => {
       animate="visible"
       exit="hidden"
       className="photo"
+      onClick={() => setPhotoModal({ state: true, photo: data })}
     >
       <div
         style={{ backgroundImage: `url(${data.thumbnailUrl})` }}
