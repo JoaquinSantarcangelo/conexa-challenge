@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.sass";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import {
@@ -7,8 +8,15 @@ import {
   BsFillImageFill,
   BsBoxArrowInRight,
 } from "react-icons/bs";
+import { signOut } from "../../features/user/userSlice";
 
-const index = () => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const handleSignOut = () => {
+    dispatch(signOut());
+  };
+
   return (
     <div className="navbar">
       <div className="wrapper-left">
@@ -34,6 +42,7 @@ const index = () => {
           id="log-out"
           variant="outline"
           size="lg"
+          onClick={() => handleSignOut()}
         >
           <div className="text">Log out</div>
         </Button>
@@ -42,4 +51,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Navbar;

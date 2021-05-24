@@ -11,6 +11,12 @@ export const initialState = {
 export const userSlice = createSlice({
   name: "post",
   initialState: initialState,
+  reducers: {
+    signOut: (state) => {
+      state.loggedIn = false;
+      localStorage.removeItem("token");
+    },
+  },
   extraReducers: {
     [signIn.pending]: (state, action) => {
       state.loading = true;
@@ -29,5 +35,8 @@ export const userSlice = createSlice({
     },
   },
 });
+
+export const { signOut } = userSlice.actions
+
 
 export default userSlice.reducer;
