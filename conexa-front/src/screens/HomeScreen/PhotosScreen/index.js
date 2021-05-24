@@ -31,7 +31,11 @@ const PhotosScreen = () => {
           ))}
         </div>
       )}
-      <PaginationButtons offset={offset} setOffset={setOffset} />
+      <PaginationButtons
+        offset={offset}
+        setOffset={setOffset}
+        fetchData={fetchPhotos}
+      />
     </div>
   );
 };
