@@ -1,32 +1,17 @@
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import authHeader from "./auth.header";
 
 //Consts
 import { API_URL } from "../consts";
 
-class AuthService {
-  login(username, password) {
-    return axios
-      .post(API_URL + "signin", { username, password })
-      .then((response) => {
-        if (response.data.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-
-        return response.data;
-      });
+export const signIn = createAsyncThunk(
+  "post/fetchPosts",
+  async ({ email, password }, { dispatch }) => {
+    const data = await axios
+      .post(API_URL + "posts", { email, password }, { headers: authHeader() })
+      .then((res) => res.data);
+    console.log(data);
+    return data;
   }
-
-  logout() {
-    localStorage.removeItem("user");
-  }
-
-  register(username, email, password) {
-    return axios.post(API_URL + "signup", {
-      username,
-      email,
-      password,
-    });
-  }
-}
-
-export default new AuthService();
+);
