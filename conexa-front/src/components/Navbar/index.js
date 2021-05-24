@@ -3,12 +3,21 @@ import "./index.sass";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button, ButtonGroup } from "@chakra-ui/react";
+import { signOut } from "../../features/user/userSlice";
+import { motion } from "framer-motion";
+
+//Icons
 import {
   BsCollectionFill,
   BsFillImageFill,
   BsBoxArrowInRight,
 } from "react-icons/bs";
-import { signOut } from "../../features/user/userSlice";
+
+const variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { delay: 0.5 } },
+  exit: { opacity: 0, y: 10 },
+};
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,7 +27,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      className="navbar"
+    >
       <div className="wrapper-left">
         <NavLink to="/">
           <Button
@@ -47,7 +61,7 @@ const Navbar = () => {
           <div className="text">Log out</div>
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

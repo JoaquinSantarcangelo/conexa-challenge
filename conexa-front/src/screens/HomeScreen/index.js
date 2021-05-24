@@ -7,7 +7,7 @@ import PhotosScreen from "./PhotosScreen";
 import PostsScreen from "./PostsScreen";
 
 //Components
-import Navbar from "../../components/Navbar";
+import Header from "./Header"
 
 //Routes
 import PrivateRoute from "../../routes/PrivateRoute";
@@ -16,11 +16,7 @@ const HomeScreen = () => {
   return (
     <div id="home-screen">
       <Router>
-        <div className="header">
-          <div className="container">
-            <Navbar />
-          </div>
-        </div>
+        <Header/>
         <div className="container">
           <Switch>
             <PrivateRoute
