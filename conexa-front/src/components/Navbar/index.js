@@ -1,10 +1,12 @@
 import React from "react";
 import "./index.sass";
-import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import { signOut } from "../../features/user/userSlice";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
+
+//Redux
+import { useDispatch } from "react-redux";
+import { signOut } from "../../features/user/userSlice";
 
 //Icons
 import {

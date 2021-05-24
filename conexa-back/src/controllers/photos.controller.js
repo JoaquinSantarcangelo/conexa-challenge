@@ -1,6 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../consts";
 
+// Get All Photos
 export const getAllPhotos = (req, res) => {
   const { offset, limit } = req.query;
   console.log(req);

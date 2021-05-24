@@ -2,6 +2,7 @@ import User from "../models/User";
 import jwt from "jsonwebtoken";
 import config from "../config";
 
+// Sign Up
 export const signUp = async (req, res) => {
   const { email, password, username } = req.body;
 
@@ -20,6 +21,7 @@ export const signUp = async (req, res) => {
   res.status(200).json({ token });
 };
 
+// Sign In
 export const signIn = async (req, res) => {
   const { email, password } = req.body;
   const userFound = await User.findOne({ email });

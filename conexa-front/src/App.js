@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Counter } from "./features/counter/Counter";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -45,4 +44,3 @@ function App() {
 }
 
 export default App;
-
