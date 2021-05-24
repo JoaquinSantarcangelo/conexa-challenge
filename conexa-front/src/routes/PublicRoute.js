@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const PublicRoute = ({ component: Component, authenticated, ...rest }) => {
-  return !authenticated ? (
+  return authenticated !== true ? (
     <Route {...rest} render={(props) => <Component {...props} />} />
   ) : (
     <Redirect to="/" />
