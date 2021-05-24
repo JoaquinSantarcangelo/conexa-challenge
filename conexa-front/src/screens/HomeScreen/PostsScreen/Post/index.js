@@ -9,14 +9,15 @@ const index = ({ data }) => {
       <div className="body">{data.body}</div>
       <Divider />
       <div className="bottom-info">
-        <div className="author">Created by <span>Lorem Ipsum</span></div>
+        <div className="author">
+          Created by <span>Lorem Ipsum</span>
+        </div>
         <div className="info-divider"></div>
         <div className="tags">
           <div className="text">Tags:</div>
           <div className="tag">Lorem</div>
           <div className="tag">Ipsum</div>
         </div>
-        <div className="info-divider"></div>
       </div>
     </div>
   );
