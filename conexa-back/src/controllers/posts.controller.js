@@ -9,6 +9,6 @@ export const getAllPosts = (req, res) => {
 
   axios
     .get(`${API_URL}/posts?_page=${page}`)
-    .then((data) => res.json({ photos: data.data }))
+    .then((data) => res.json({ posts: data.data }))
     .catch((err) => console.log(err));
 };
