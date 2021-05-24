@@ -20,7 +20,7 @@ const HomeScreen = () => {
         </div>
         <div className="container">
           <Switch>
-            <Route path="/posts" exact component={PostsScreen}></Route>
+            <Route path="/" exact component={PostsScreen}></Route>
             <Route path="/photos" component={PhotosScreen}></Route>
           </Switch>
         </div>

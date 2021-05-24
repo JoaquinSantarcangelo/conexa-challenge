@@ -6,7 +6,7 @@ const index = () => {
   return (
     <div className="navbar">
       <div className="wrapper-left">
-        <NavLink to="/posts">Posts</NavLink>
+        <NavLink to="/">Posts</NavLink>
         <NavLink to="/photos">Photos</NavLink>
       </div>
       <div className="wrapper-right">
