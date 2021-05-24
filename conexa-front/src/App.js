@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Switch>
           {/* Home Screen */}
-          <PrivateRoute path="/" exact authenticated={user.user}>
+          <PrivateRoute path="/" authenticated={true}>
             <HomeScreen />
           </PrivateRoute>
           {/* Login Screen */}
