@@ -9,7 +9,7 @@ export const variantsTwo = {
   visible: (custom) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.25, delay: 0.25 + custom / 5 },
+    transition: { duration: 0.25, delay: 0.15 + custom / 5 },
   }),
   exit: { opacity: 0, y: 10 },
 };
