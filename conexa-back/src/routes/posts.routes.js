@@ -8,6 +8,7 @@ import { getAllPosts } from "../controllers/posts.controller";
 import { verifyToken } from "../middlewares/authJwt";
 
 //Routes
-router.get("/", verifyToken, getAllPosts);
+// router.get("/", verifyToken, getAllPosts);
+router.get("/:page", getAllPosts);
 
 export default router;
