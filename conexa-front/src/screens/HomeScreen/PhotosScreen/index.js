@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./index.sass";
 import { Divider } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPhotos } from "../../../services/user.service";
 
 //Components
 import Photo from "./Photo";
 import Loading from "../../../components/Loading";
+import PaginationButtons from "../../../components/PaginationButtons";
 
 const PhotosScreen = () => {
   const dispatch = useDispatch();
@@ -17,11 +17,6 @@ const PhotosScreen = () => {
   useEffect(() => {
     dispatch(fetchPhotos(offset));
   }, []);
-
-  const handleNextPage = () => {
-    dispatch(fetchPhotos(offset + 10));
-    setOffset(offset + 10);
-  };
 
   return (
     <div id="photos-screen">
@@ -36,27 +31,7 @@ const PhotosScreen = () => {
           ))}
         </div>
       )}
-      <div className="buttons">
-        {offset > 0 && (
-          <Button
-            onClick={() => handleNextPage()}
-            id="next-page"
-            colorScheme="teal"
-            size="lg"
-            mr="1em"
-          >
-            Previous Page
-          </Button>
-        )}
-        <Button
-          onClick={() => handleNextPage()}
-          id="next-page"
-          colorScheme="teal"
-          size="lg"
-        >
-          Next Page
-        </Button>
-      </div>
+      <PaginationButtons offset={offset} setOffset={setOffset} />
     </div>
   );
 };

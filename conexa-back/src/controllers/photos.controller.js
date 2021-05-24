@@ -8,7 +8,7 @@ export const getAllPhotos = (req, res) => {
   console.log(offset, limit);
 
   axios
-    .get(`${API_URL}/photos?_page=${1}`)
+    .get(`${API_URL}/photos?_page=${page}`)
     .then((data) => res.json({ photos: data.data }))
     .catch((err) => console.log(err));
 };
