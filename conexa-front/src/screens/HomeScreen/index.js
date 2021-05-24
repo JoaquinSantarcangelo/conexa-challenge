@@ -31,7 +31,6 @@ const HomeScreen = () => {
             ></PrivateRoute>
             <PrivateRoute
               path="/photos"
-              
               authenticated={true}
               component={PhotosScreen}
             ></PrivateRoute>
