@@ -1,23 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import AuthService from "../../services/auth.service";
+import { signIn } from "../../services/auth.service";
 
 export const initialState = {
-  user: null,
-  loggedIn: true,
+  token: null,
+  loggedIn: false,
   loading: false,
-  error: null,
+  error: "",
 };
 
 export const userSlice = createSlice({
   name: "post",
   initialState: initialState,
   extraReducers: {
-    [AuthService.login.fulfilled]: (state, action) => {
-      state.user = action.payload.data;
-      localStorage.setItem("user", state.user);
+    [signIn.pending]: (state, action) => {
+      state.loading = true;
     },
-    [AuthService.login.rejected]: (state, action) => {
+    [signIn.fulfilled]: (state, action) => {
+      state.user = action.payload.data;
+      state.loggedIn = true;
+      state.loading = false;
+      localStorage.setItem("token", action.payload.token);
+    },
+    [signIn.rejected]: (state, action) => {
       state.user = null;
+      state.loggedIn = false;
+      state.loading = false;
+      state.error = "Invalid credentials";
     },
   },
 });

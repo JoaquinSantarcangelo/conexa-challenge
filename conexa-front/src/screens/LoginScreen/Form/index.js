@@ -1,22 +1,26 @@
 import React from "react";
 import "./index.sass";
-import { Box, ButtonGroup } from "@chakra-ui/react";
+import { Box, ButtonGroup, Alert, AlertIcon } from "@chakra-ui/react";
 import { Formik } from "formik";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 
 //Utils
 import { initialValues, validationSchema } from "../utils";
 
-//Functions
-import { handleLogin } from "../functions";
-
 //Consts
 import { FORM_TITLE, SUBMIT_TEXT } from "../../../consts/loginScreen";
+import { userSlice } from "../../../features/user/userSlice";
 
-const Form = () => {
+const Form = ({ user, handleLogin }) => {
   return (
     <div className="form">
       <h1>{FORM_TITLE}</h1>
+      {user.error !== "" && (
+        <Alert mb="1em"status="error">
+          <AlertIcon />
+          {user.error}
+        </Alert>
+      )}
       <Formik
         initialValues={initialValues}
         onSubmit={handleLogin}
@@ -35,7 +39,12 @@ const Form = () => {
               label="Password"
               inputProps={{ type: "password" }}
             />
-            <SubmitButton width="100%" size="lg" mt="2em">
+            <SubmitButton
+              isLoading={user.loading}
+              width="100%"
+              size="lg"
+              mt="2em"
+            >
               {SUBMIT_TEXT}
             </SubmitButton>
           </Box>

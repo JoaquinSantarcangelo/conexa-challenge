@@ -25,7 +25,7 @@ const PhotosScreen = () => {
       ) : (
         <div className="photos">
           {photos.photos.map((photo) => (
-            <Photo data={photo} />
+            <Photo key={photo.id} data={photo} />
           ))}
         </div>
       )}

@@ -1,3 +1,3 @@
 export const handleLogin = () => {
-    alert("Handleing Login")
-}
+  alert("Handleing Login");
+};
