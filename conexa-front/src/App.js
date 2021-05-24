@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Counter } from "./features/counter/Counter";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { AnimatePresence } from "framer-motion";
+
 //Routes
 import PrivateRoute from "./routes/PrivateRoute";
 import PublicRoute from "./routes/PublicRoute";
@@ -29,25 +29,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route
-          render={({ location }) => (
-            <AnimatePresence exitBeforeEnter initial={false}>
-              <Switch>
-                {/* Home Screen */}
-                <PrivateRoute exact path="/" authenticated={user.loggedIn}>
-                  <HomeScreen />
-                </PrivateRoute>
-                {/* Login Screen */}
-                <PublicRoute path="/" authenticated={user.loggedIn}>
-                  <LoginScreen />
-                </PublicRoute>
-              </Switch>
-            </AnimatePresence>
-          )}
-        />
+        <Switch>
+          {/* Home Screen */}
+          <PrivateRoute exact path="/" authenticated={user.loggedIn}>
+            <HomeScreen />
+          </PrivateRoute>
+          {/* Login Screen */}
+          <PublicRoute path="/" authenticated={user.loggedIn}>
+            <LoginScreen />
+          </PublicRoute>
+        </Switch>
       </Router>
     </div>
   );
 }
 
 export default App;
+
