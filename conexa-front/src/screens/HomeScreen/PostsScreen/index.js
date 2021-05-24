@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.sass";
 import { Divider } from "@chakra-ui/react";
@@ -11,6 +11,7 @@ import Post from "./Post";
 const PostsScreen = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     dispatch(fetchPosts());
