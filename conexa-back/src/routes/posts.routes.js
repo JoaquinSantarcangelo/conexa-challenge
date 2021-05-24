@@ -8,7 +8,7 @@ import { getAllPosts } from "../controllers/posts.controller";
 import { verifyToken } from "../middlewares/authJwt";
 
 //Routes
-// router.get("/", verifyToken, getAllPosts);
-router.get("/", getAllPosts);
+router.get("/", verifyToken, getAllPosts);
+// router.get("/", getAllPosts);
 
 export default router;
