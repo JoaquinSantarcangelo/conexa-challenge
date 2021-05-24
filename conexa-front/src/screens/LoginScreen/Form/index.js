@@ -15,7 +15,12 @@ const Form = ({ user, handleLogin }) => {
   return (
     <div className="form">
       <h1>{FORM_TITLE}</h1>
-
+      {user.error !== "" && (
+        <Alert mb="1em"status="error">
+          <AlertIcon />
+          {user.error}
+        </Alert>
+      )}
       <Formik
         initialValues={initialValues}
         onSubmit={handleLogin}
