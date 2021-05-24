@@ -6,10 +6,10 @@ import authHeader from "./auth.header";
 import { API_URL } from "../consts";
 
 export const signIn = createAsyncThunk(
-  "post/fetchPosts",
+  "auth/signin",
   async ({ email, password }, { dispatch }) => {
     const data = await axios
-      .post(API_URL + "posts", { email, password }, { headers: authHeader() })
+      .post(API_URL + "auth/signin", { email, password })
       .then((res) => res.data);
     console.log(data);
     return data;

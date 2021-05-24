@@ -5,19 +5,27 @@ export const initialState = {
   user: null,
   loggedIn: false,
   loading: false,
-  error: null,
+  error: "",
 };
 
 export const userSlice = createSlice({
   name: "post",
   initialState: initialState,
   extraReducers: {
+    [signIn.pending]: (state, action) => {
+      state.loading = true;
+    },
     [signIn.fulfilled]: (state, action) => {
       state.user = action.payload.data;
+      state.loggedIn = true;
+      state.loading = false;
       localStorage.setItem("user", state.user);
     },
     [signIn.rejected]: (state, action) => {
       state.user = null;
+      state.loggedIn = false;
+      state.loading = false;
+      state.error = "Invalid credentials"
     },
   },
 });
