@@ -19,3 +19,9 @@ export const variantsHeader = {
   visible: { height: "30vh" },
   exit: { height: 0 },
 };
+
+export const variantsTransition = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+};

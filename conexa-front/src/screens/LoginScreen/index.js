@@ -4,7 +4,8 @@ import { signIn } from "../../services/auth.service";
 import { useSelector, useDispatch } from "react-redux";
 import { user } from "../../features/user/userSlice";
 import Form from "./Form";
-
+import { motion } from "framer-motion";
+import { variantsTransition } from "../../consts/variants";
 const LoginScreen = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -14,11 +15,17 @@ const LoginScreen = () => {
   };
 
   return (
-    <div id="login-screen">
+    <motion.div
+      variants={variantsTransition}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      id="login-screen"
+    >
       <div className="card">
         <Form user={user} handleLogin={handleLogin} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
