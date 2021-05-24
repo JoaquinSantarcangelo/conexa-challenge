@@ -17,9 +17,11 @@ export const fetchPosts = createAsyncThunk(
 
 export const fetchPhotos = createAsyncThunk(
   "photo/fetchPhotos",
-  async (_, { dispatch }) => {
+  async (offset, { dispatch }) => {
+    console.log(offset);
+    const query = `?offset=${offset}&limit=10`;
     const data = await axios
-      .get(API_URL + "photos", { headers: authHeader() })
+      .get(API_URL + "photos" + query, { headers: authHeader() })
       .then((res) => res.data);
     return data;
   }

@@ -3,7 +3,7 @@ import { signIn } from "../../services/auth.service";
 
 export const initialState = {
   token: null,
-  loggedIn: false,
+  loggedIn: true,
   loading: false,
   error: "",
 };
