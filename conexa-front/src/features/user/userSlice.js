@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { signIn } from "../../services/auth.service";
 
 export const initialState = {
-  token: null,
-  loggedIn: true,
+  token: localStorage.getItem("token") || null,
+  loggedIn: localStorage.getItem("token") ? true : false,
   loading: false,
   error: "",
 };
