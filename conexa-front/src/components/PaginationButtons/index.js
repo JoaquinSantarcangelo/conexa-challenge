@@ -1,15 +1,21 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPhotos } from "../../services/user.service";
 
-const index = ({ offset, setOffset, dispatch, fetchData }) => {
+const PaginationButtons = ({ offset, setOffset }) => {
+  const dispatch = useDispatch();
+
+  //Pagination Functions
   const handleNextPage = () => {
-    dispatch(fetchData(offset + 10));
+    console.log("Handleing");
+    dispatch(fetchPhotos(offset + 10));
     setOffset(offset + 10);
   };
 
   const handlePrevPage = () => {
     if (offset - 10 >= 0) {
-      dispatch(fetchData(offset - 10));
+      dispatch(fetchPhotos(offset - 10));
       setOffset(offset - 10);
     }
   };
@@ -18,7 +24,7 @@ const index = ({ offset, setOffset, dispatch, fetchData }) => {
     <div className="buttons">
       {offset > 0 && (
         <Button
-          onClick={() => handleNextPage()}
+          onClick={() => handlePrevPage()}
           id="next-page"
           colorScheme="teal"
           size="lg"
@@ -28,7 +34,7 @@ const index = ({ offset, setOffset, dispatch, fetchData }) => {
         </Button>
       )}
       <Button
-        onClick={() => handlePrevPage()}
+        onClick={() => handleNextPage()}
         id="next-page"
         colorScheme="teal"
         size="lg"
@@ -39,4 +45,4 @@ const index = ({ offset, setOffset, dispatch, fetchData }) => {
   );
 };
 
-export default index;
+export default PaginationButtons;
