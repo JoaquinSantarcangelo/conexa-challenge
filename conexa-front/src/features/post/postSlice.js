@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import UserService from "../../services/user.service";
+import { fetchPosts } from "../../services/user.service";
 
 export const initialState = {
   posts: [],
@@ -10,15 +10,20 @@ export const initialState = {
 export const postSlice = createSlice({
   name: "post",
   initialState: initialState,
+  reducers: {},
+  extraReducers: {},
   extraReducers: {
-    [UserService.getPosts.pending]: (state, action) => {
+    [fetchPosts.pending]: (state, action) => {
+      console.log("Get pending", action);
       state.loading = true;
     },
-    [UserService.getPosts.fulfilled]: (state, action) => {
-      state.posts = action.payload.data;
+    [fetchPosts.fulfilled]: (state, action) => {
+      console.log("Get post fullfilled", action);
+      state.posts = action.payload.posts;
       state.loading = false;
     },
-    [UserService.getPosts.rejected]: (state, action) => {
+    [fetchPosts.rejected]: (state, action) => {
+      console.log("Get post rejected", action);
       state.posts = [];
       state.loading = false;
       state.error = "No se pudo conseguir el recurso solicitado";

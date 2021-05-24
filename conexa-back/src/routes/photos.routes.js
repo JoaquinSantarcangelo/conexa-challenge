@@ -8,6 +8,7 @@ import { getAllPhotos } from "../controllers/photos.controller";
 import { verifyToken } from "../middlewares/authJwt";
 
 //Routes
-router.get("/", verifyToken, getAllPhotos);
+// router.get("/", verifyToken, getAllPhotos);
+router.get("/", getAllPhotos);
 
 export default router;
