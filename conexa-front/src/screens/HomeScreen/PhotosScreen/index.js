@@ -6,12 +6,17 @@ import { fetchPhotos } from "../../../services/user.service";
 
 //Components
 import Photo from "./Photo";
+import PhotoModal from "./PhotoModal";
 import Loading from "../../../components/Loading";
 import PaginationButtons from "../../../components/PaginationButtons";
 
 const PhotosScreen = () => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.photos);
+  const [photoModal, setPhotoModal] = useState({
+    photo: null,
+    state: false,
+  });
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -20,6 +25,13 @@ const PhotosScreen = () => {
 
   return (
     <div id="photos-screen">
+      {photoModal.state === true && (
+        <PhotoModal
+          setPhotoModal={setPhotoModal}
+          photoModal={photoModal}
+          photo={photoModal.photo}
+        />
+      )}
       <div className="screen-title">Photos</div>
       <Divider />
       {photos.loading ? (
@@ -27,7 +39,12 @@ const PhotosScreen = () => {
       ) : (
         <div className="photos">
           {photos.photos.map((photo, i) => (
-            <Photo i={i} key={photo.id} data={photo} />
+            <Photo
+              i={i}
+              key={photo.id}
+              data={photo}
+              setPhotoModal={setPhotoModal}
+            />
           ))}
         </div>
       )}
