@@ -11,20 +11,26 @@ import Loading from "../../../components/Loading";
 import PaginationButtons from "../../../components/PaginationButtons";
 
 const PhotosScreen = () => {
+  //Hooks - Redux
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.photos);
+
+  //Hooks - useState
   const [photoModal, setPhotoModal] = useState({
     photo: null,
     state: false,
   });
   const [offset, setOffset] = useState(0);
 
+  //Hooks - useEffect
   useEffect(() => {
     dispatch(fetchPhotos(offset));
   }, []);
 
   return (
-    <div id="photos-screen">
+    <div id="photos-screen" className="screen">
+
+      {/* Individual Photo Modal */}
       {photoModal.state === true && (
         <PhotoModal
           setPhotoModal={setPhotoModal}
@@ -48,6 +54,8 @@ const PhotosScreen = () => {
           ))}
         </div>
       )}
+
+      {/* Pagination Interface */}
       <PaginationButtons
         offset={offset}
         setOffset={setOffset}

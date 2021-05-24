@@ -5,6 +5,7 @@ import authHeader from "./auth.header";
 //Consts
 import { API_URL } from "../consts";
 
+// Fetch Posts
 export const fetchPosts = createAsyncThunk(
   "post/fetchPosts",
   async (_, { dispatch }) => {
@@ -15,6 +16,7 @@ export const fetchPosts = createAsyncThunk(
   }
 );
 
+// Fetch Photos
 export const fetchPhotos = createAsyncThunk(
   "photo/fetchPhotos",
   async (offset, { dispatch }) => {

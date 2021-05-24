@@ -1,15 +1,22 @@
 import React from "react";
 import "./index.sass";
-import { signIn } from "../../services/auth.service";
-import { useSelector, useDispatch } from "react-redux";
-import { user } from "../../features/user/userSlice";
-import Form from "./Form";
 import { motion } from "framer-motion";
 import { variantsTransition } from "../../consts/variants";
+
+// Redux Imports
+import { signIn } from "../../services/auth.service";
+import { useSelector, useDispatch } from "react-redux";
+
+// Components
+import Form from "./Form";
+
 const LoginScreen = () => {
+  // Hooks - Redux
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
+  // -- Functions -- //
+  // Handle Login
   const handleLogin = (email, password) => {
     dispatch(signIn(email, password));
   };

@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.sass"
 import { motion } from "framer-motion";
 import { variantsHeader } from "../../../consts/variants";
 

@@ -10,10 +10,14 @@ import Post from "./Post";
 import PaginationButtons from "../../../components/PaginationButtons";
 
 const PostsScreen = () => {
+  // Hooks - Redux
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
+
+  // Hooks - useState
   const [offset, setOffset] = useState(0);
 
+  // Hooks - useEffect
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
@@ -31,6 +35,8 @@ const PostsScreen = () => {
           ))}
         </div>
       )}
+
+      {/* Pagination Interface */}
       <PaginationButtons
         offset={offset}
         setOffset={setOffset}
