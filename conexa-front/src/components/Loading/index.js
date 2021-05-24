@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.sass"
 import { Spinner } from "@chakra-ui/react";
 
 const index = () => {
