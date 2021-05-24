@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.sass";
+import { Divider } from "@chakra-ui/react";
 
 //Components
 import Post from "./Post";
 
-import { Divider } from "@chakra-ui/react";
 const posts = [
   {
     userId: 1,
@@ -46,7 +46,7 @@ const PostsScreen = () => {
       <Divider />
       <div className="posts">
         {posts.map((post) => (
-          <Post data={post}/>
+          <Post data={post} />
         ))}
       </div>
     </div>

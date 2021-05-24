@@ -9,6 +9,9 @@ import PostsScreen from "./PostsScreen";
 //Components
 import Navbar from "../../components/Navbar";
 
+//Routes
+import PrivateRoute from "../../routes/PrivateRoute";
+
 const HomeScreen = () => {
   return (
     <div id="home-screen">
@@ -20,8 +23,16 @@ const HomeScreen = () => {
         </div>
         <div className="container">
           <Switch>
-            <Route path="/" exact component={PostsScreen}></Route>
-            <Route path="/photos" component={PhotosScreen}></Route>
+            <PrivateRoute
+              authenticated={true}
+              path="/"
+              exact
+              component={PostsScreen}
+            ></PrivateRoute>
+            <PrivateRoute
+              authenticated={true}
+              component={PhotosScreen}
+            ></PrivateRoute>
           </Switch>
         </div>
       </Router>

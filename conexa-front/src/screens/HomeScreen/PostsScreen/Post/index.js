@@ -5,7 +5,6 @@ const index = ({ data }) => {
   return (
     <div className="post">
       <div className="title">{data.title}</div>
-      
     </div>
   );
 };
